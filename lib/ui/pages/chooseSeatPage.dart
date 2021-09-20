@@ -345,6 +345,7 @@ class chooseSeatPage extends StatelessWidget {
             Container(
               margin: EdgeInsets.only(top: 30),
               child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
                     'Your Seat',
@@ -352,9 +353,19 @@ class chooseSeatPage extends StatelessWidget {
                       fontWeight: light,
                     ),
                   ),
+                  Text(
+                    'A3, B3',
+                    style: blackTextStyle.copyWith(
+                      fontSize: 16,
+                      fontWeight: medium,
+                    ),
+                  ),
                 ],
               ),
-            )
+            ),
+
+            // your price
+            Container()
           ],
         ),
       );
