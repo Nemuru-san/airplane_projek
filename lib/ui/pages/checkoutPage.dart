@@ -1,4 +1,5 @@
 import 'package:airplane_projek/ui/widgets/bookingDetailItems.dart';
+import 'package:airplane_projek/ui/widgets/costumeButton.dart';
 import 'package:flutter/material.dart';
 import '../../shared/thame.dart';
 
@@ -205,6 +206,123 @@ class checkoutPage extends StatelessWidget {
       );
     }
 
+    Widget paymentDetail() {
+      return Container(
+        margin: EdgeInsets.only(top: 20),
+        padding: EdgeInsets.symmetric(
+          horizontal: 20,
+          vertical: 30,
+        ),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(18),
+          color: ktextColorWhite,
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'Payment Details',
+              style: blackTextStyle.copyWith(
+                fontSize: 16,
+                fontWeight: semiBold,
+              ),
+            ),
+            Container(
+              margin: EdgeInsets.only(top: 16),
+              child: Row(
+                children: [
+                  Container(
+                    width: 100,
+                    height: 70,
+                    margin: EdgeInsets.only(right: 16),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(18),
+                      image: DecorationImage(
+                        fit: BoxFit.cover,
+                        image: AssetImage('assets/card_bg.png'),
+                      ),
+                    ),
+                    child: Center(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Container(
+                            width: 24,
+                            height: 24,
+                            margin: EdgeInsets.only(right: 6),
+                            decoration: BoxDecoration(
+                              image: DecorationImage(
+                                image: AssetImage('assets/plane_icon.png'),
+                              ),
+                            ),
+                          ),
+                          Text(
+                            'Pay',
+                            style: whiteTextStyle.copyWith(
+                              fontSize: 16,
+                              fontWeight: medium,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'IDR 666.666.666',
+                          style: blackTextStyle.copyWith(
+                            fontSize: 18,
+                            fontWeight: semiBold,
+                          ),
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                        SizedBox(
+                          height: 5,
+                        ),
+                        Text(
+                          'Current Balance',
+                          style: greyTextStyle.copyWith(
+                            fontWeight: light,
+                          ),
+                        )
+                      ],
+                    ),
+                  )
+                ],
+              ),
+            )
+          ],
+        ),
+      );
+    }
+
+    Widget payButton() {
+      return costumeButton(
+        title: 'Pay Now !',
+        onPressed: () {},
+        margin: EdgeInsets.only(
+          top: 30,
+        ),
+      );
+    }
+
+    Widget termAndCondition() {
+      return Container(
+        alignment: Alignment.center,
+        margin: EdgeInsets.only(top: 30, bottom: 30),
+        child: Text(
+          'Tearms and Conditions',
+          style: greyTextStyle.copyWith(
+              fontSize: 16,
+              fontWeight: light,
+              decoration: TextDecoration.underline),
+        ),
+      );
+    }
+
     return Scaffold(
       backgroundColor: kbgColor,
       body: ListView(
@@ -214,6 +332,9 @@ class checkoutPage extends StatelessWidget {
         children: [
           route(),
           bookingDetail(),
+          paymentDetail(),
+          payButton(),
+          termAndCondition(),
         ],
       ),
     );
