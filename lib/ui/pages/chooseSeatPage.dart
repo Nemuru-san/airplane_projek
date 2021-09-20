@@ -1,3 +1,4 @@
+import 'package:airplane_projek/ui/widgets/costumeButton.dart';
 import 'package:airplane_projek/ui/widgets/seatItem.dart';
 import 'package:flutter/material.dart';
 import '../../shared/thame.dart';
@@ -77,11 +78,11 @@ class chooseSeatPage extends StatelessWidget {
 
     Widget selectSeat() {
       return Container(
-        margin: EdgeInsets.only(top: 30),
+        margin: EdgeInsets.only(top: 20),
         width: double.infinity,
         padding: EdgeInsets.symmetric(
           horizontal: 22,
-          vertical: 30,
+          vertical: 20,
         ),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(18),
@@ -391,6 +392,14 @@ class chooseSeatPage extends StatelessWidget {
       );
     }
 
+    Widget checkoutButton() {
+      return costumeButton(
+        title: 'Checkout Now',
+        onPressed: () {},
+        margin: EdgeInsets.only(top: 20, bottom: 50),
+      );
+    }
+
     return Scaffold(
       backgroundColor: kbgColor,
       body: ListView(
@@ -401,6 +410,7 @@ class chooseSeatPage extends StatelessWidget {
           title(),
           seatStatus(),
           selectSeat(),
+          checkoutButton(),
         ],
       ),
     );
