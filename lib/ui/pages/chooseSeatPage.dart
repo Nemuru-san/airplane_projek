@@ -1,3 +1,4 @@
+import 'package:airplane_projek/ui/pages/checkoutPage.dart';
 import 'package:airplane_projek/ui/widgets/costumeButton.dart';
 import 'package:airplane_projek/ui/widgets/seatItem.dart';
 import 'package:flutter/material.dart';
@@ -395,7 +396,14 @@ class chooseSeatPage extends StatelessWidget {
     Widget checkoutButton() {
       return costumeButton(
         title: 'Checkout Now',
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => checkoutPage(),
+            ),
+          );
+        },
         margin: EdgeInsets.only(top: 20, bottom: 50),
       );
     }
