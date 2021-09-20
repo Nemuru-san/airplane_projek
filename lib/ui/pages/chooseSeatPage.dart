@@ -339,6 +339,21 @@ class chooseSeatPage extends StatelessWidget {
                   ),
                 ],
               ),
+            ),
+
+            // your seat
+            Container(
+              margin: EdgeInsets.only(top: 30),
+              child: Row(
+                children: [
+                  Text(
+                    'Your Seat',
+                    style: greyTextStyle.copyWith(
+                      fontWeight: light,
+                    ),
+                  ),
+                ],
+              ),
             )
           ],
         ),
