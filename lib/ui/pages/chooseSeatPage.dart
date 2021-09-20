@@ -365,7 +365,27 @@ class chooseSeatPage extends StatelessWidget {
             ),
 
             // your price
-            Container()
+            Container(
+              margin: EdgeInsets.only(top: 16),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'Total',
+                    style: greyTextStyle.copyWith(
+                      fontWeight: light,
+                    ),
+                  ),
+                  Text(
+                    'IDR 666.000.000',
+                    style: primaryTextStyle.copyWith(
+                      fontSize: 16,
+                      fontWeight: bold,
+                    ),
+                  ),
+                ],
+              ),
+            )
           ],
         ),
       );
