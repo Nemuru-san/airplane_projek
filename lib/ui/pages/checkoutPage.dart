@@ -1,3 +1,4 @@
+import 'package:airplane_projek/ui/widgets/bookingDetailItems.dart';
 import 'package:flutter/material.dart';
 import '../../shared/thame.dart';
 
@@ -84,6 +85,7 @@ class checkoutPage extends StatelessWidget {
           color: ktextColorWhite,
         ),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             // destination title
             Row(
@@ -150,7 +152,54 @@ class checkoutPage extends StatelessWidget {
               ],
             ),
 
-            // destination item detail
+            // booking detail
+            Container(
+              margin: EdgeInsets.only(top: 20),
+              child: Text(
+                'Booking Details',
+                style: blackTextStyle.copyWith(
+                  fontSize: 16,
+                  fontWeight: semiBold,
+                ),
+              ),
+            ),
+
+            // booking item details
+            bookingDetailItems(
+              title: 'Traveler',
+              textValue: '2 Person',
+              valueColor: ktextColorBlack,
+            ),
+            bookingDetailItems(
+              title: 'Seat',
+              textValue: 'A3, B3',
+              valueColor: ktextColorBlack,
+            ),
+            bookingDetailItems(
+              title: 'Insurance',
+              textValue: 'YES',
+              valueColor: ktextColorGreen,
+            ),
+            bookingDetailItems(
+              title: 'Refundable',
+              textValue: 'NO',
+              valueColor: ktextColorRed,
+            ),
+            bookingDetailItems(
+              title: 'VAT',
+              textValue: '45 %',
+              valueColor: ktextColorBlack,
+            ),
+            bookingDetailItems(
+              title: 'Price',
+              textValue: 'IDR 666.000.000',
+              valueColor: ktextColorBlack,
+            ),
+            bookingDetailItems(
+              title: 'Grand Total',
+              textValue: 'IDR 666.666.666',
+              valueColor: kprimaryColor,
+            ),
           ],
         ),
       );
