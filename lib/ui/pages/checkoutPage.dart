@@ -1,3 +1,4 @@
+import 'package:airplane_projek/ui/pages/successCheckout.dart';
 import 'package:airplane_projek/ui/widgets/bookingDetailItems.dart';
 import 'package:airplane_projek/ui/widgets/costumeButton.dart';
 import 'package:flutter/material.dart';
@@ -302,7 +303,14 @@ class checkoutPage extends StatelessWidget {
     Widget payButton() {
       return costumeButton(
         title: 'Pay Now !',
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => successCheckout(),
+            ),
+          );
+        },
         margin: EdgeInsets.only(
           top: 30,
         ),
