@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "325922705864",
-    "project_id": "airplane-project-e800a",
-    "storage_bucket": "airplane-project-e800a.appspot.com"
+    "project_number": "440282963575",
+    "project_id": "airplane-1d332",
+    "storage_bucket": "airplane-1d332.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:325922705864:android:30d8cf3a2a930a938df0fd",
+        "mobilesdk_app_id": "1:440282963575:android:5123554354311402967072",
         "android_client_info": {
-          "package_name": "com.nimuru.airplane_projekA"
+          "package_name": "com.nimuru.airplane_projek"
         }
       },
       "oauth_client": [
         {
-          "client_id": "325922705864-q6c3no6jsm5fl1p0bpchi6ng7hn5c7h0.apps.googleusercontent.com",
+          "client_id": "440282963575-g3i59278hoov6fsrd8i3qi67p7l4utk5.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBcFArtCiDnS55T0V_zYLifNr42-EMLAi8"
+          "current_key": "AIzaSyAbTOWZ5SKW3MOAJJNyVOl38nsJzwYBlgo"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "325922705864-q6c3no6jsm5fl1p0bpchi6ng7hn5c7h0.apps.googleusercontent.com",
+              "client_id": "440282963575-g3i59278hoov6fsrd8i3qi67p7l4utk5.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
