@@ -10,7 +10,7 @@ class userModel extends Equatable {
   userModel({
     required this.id,
     required this.email,
-    this.name = '',
+    required this.name,
     this.hobby = '',
     this.balance = 0,
   });
