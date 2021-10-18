@@ -5,12 +5,14 @@ class costumeTextfield extends StatelessWidget {
   final String title;
   final String placeholder;
   final bool obsecureText;
+  final TextEditingController controller;
 
   const costumeTextfield({
     Key? key,
     required this.title,
     required this.placeholder,
     this.obsecureText = false,
+    required this.controller,
   }) : super(key: key);
 
   @override
@@ -27,6 +29,7 @@ class costumeTextfield extends StatelessWidget {
           TextFormField(
             cursorColor: ktextColorBlack,
             obscureText: obsecureText,
+            controller: controller,
             decoration: InputDecoration(
                 hintText: placeholder,
                 border: OutlineInputBorder(

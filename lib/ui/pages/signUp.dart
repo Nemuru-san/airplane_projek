@@ -1,10 +1,17 @@
+import 'package:airplane_projek/cubit/auth_cubit.dart';
 import 'package:airplane_projek/ui/widgets/costumeButton.dart';
 import 'package:airplane_projek/ui/widgets/costumeTextfield.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../shared/thame.dart';
 
 class signUpPage extends StatelessWidget {
-  const signUpPage({Key? key}) : super(key: key);
+  signUpPage({Key? key}) : super(key: key);
+
+  TextEditingController nameController = TextEditingController(text: '');
+  TextEditingController emailController = TextEditingController(text: '');
+  TextEditingController passwordController = TextEditingController(text: '');
+  TextEditingController hobbyController = TextEditingController(text: '');
 
   @override
   Widget build(BuildContext context) {
@@ -23,6 +30,7 @@ class signUpPage extends StatelessWidget {
         return costumeTextfield(
           title: 'FULL NAME',
           placeholder: 'Input your full name',
+          controller: nameController,
         );
       }
 
@@ -30,6 +38,7 @@ class signUpPage extends StatelessWidget {
         return costumeTextfield(
           title: 'EMAIL ADDRESS',
           placeholder: 'Input your email address',
+          controller: emailController,
         );
       }
 
@@ -38,6 +47,7 @@ class signUpPage extends StatelessWidget {
           title: 'PASSWORD',
           placeholder: 'Input your password',
           obsecureText: true,
+          controller: passwordController,
         );
       }
 
@@ -45,14 +55,43 @@ class signUpPage extends StatelessWidget {
         return costumeTextfield(
           title: 'HOBBY',
           placeholder: 'Input your Hobby',
+          controller: hobbyController,
         );
       }
 
       Widget submitButton() {
-        return costumeButton(
-          title: 'GET STARTED !!',
-          onPressed: () {
-            Navigator.pushNamed(context, '/bonus');
+        return BlocConsumer<AuthCubit, AuthState>(
+          listener: (context, state) {
+            // TODO: implement listener
+            if (state is AuthSuccess) {
+              Navigator.pushNamedAndRemoveUntil(
+                  context, '/bonus', (route) => false);
+            } else if (state is AuthFailed) {
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  backgroundColor: ktextColorRed,
+                  content: Text(state.error),
+                ),
+              );
+            }
+          },
+          builder: (context, state) {
+            if (state is AuthLoading) {
+              return Center(
+                child: CircularProgressIndicator(),
+              );
+            }
+
+            return costumeButton(
+              title: 'GET STARTED !!',
+              onPressed: () {
+                context.read<AuthCubit>().signUp(
+                    email: emailController.text,
+                    password: passwordController.text,
+                    name: nameController.text,
+                    hobby: hobbyController.text);
+              },
+            );
           },
         );
       }
