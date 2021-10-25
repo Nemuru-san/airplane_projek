@@ -8,11 +8,9 @@ import '../../shared/thame.dart';
 class signInPage extends StatelessWidget {
   signInPage({Key? key}) : super(key: key);
 
-  final TextEditingController nameController = TextEditingController(text: '');
   final TextEditingController emailController = TextEditingController(text: '');
   final TextEditingController passwordController =
       TextEditingController(text: '');
-  final TextEditingController hobbyController = TextEditingController(text: '');
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +48,7 @@ class signInPage extends StatelessWidget {
             // TODO: implement listener
             if (state is AuthSuccess) {
               Navigator.pushNamedAndRemoveUntil(
-                  context, '/bonus', (route) => false);
+                  context, '/main', (route) => false);
             } else if (state is AuthFailed) {
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(
@@ -70,11 +68,10 @@ class signInPage extends StatelessWidget {
             return costumeButton(
               title: 'Sign In !!',
               onPressed: () {
-                context.read<AuthCubit>().signUp(
-                    email: emailController.text,
-                    password: passwordController.text,
-                    name: nameController.text,
-                    hobby: hobbyController.text);
+                context.read<AuthCubit>().signIn(
+                      email: emailController.text,
+                      password: passwordController.text,
+                    );
               },
             );
           },
@@ -100,7 +97,7 @@ class signInPage extends StatelessWidget {
     Widget tacButton() {
       return GestureDetector(
         onTap: () {
-          Navigator.pop(context);
+          Navigator.pushNamed(context, '/sign-up');
         },
         child: Container(
           alignment: Alignment.center,

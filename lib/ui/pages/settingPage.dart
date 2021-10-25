@@ -1,4 +1,5 @@
 import 'package:airplane_projek/cubit/auth_cubit.dart';
+import 'package:airplane_projek/cubit/page_cubit.dart';
 import 'package:airplane_projek/ui/widgets/costumeButton.dart';
 import 'package:flutter/material.dart';
 import '../../shared/thame.dart';
@@ -20,8 +21,10 @@ class settingPage extends StatelessWidget {
             ),
           );
         } else if (state is AuthInitial) {
+          context.read<PageCubit>().setPage(0);
+
           Navigator.pushNamedAndRemoveUntil(
-              context, '/sign-up', (route) => false);
+              context, '/sign-in', (route) => false);
         }
       },
       builder: (context, state) {
